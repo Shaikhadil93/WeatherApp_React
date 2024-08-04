@@ -1,4 +1,4 @@
-function TopButton() {
+function TopButton({setQuery}) {
   const cities = [
     {
       id: 1,
@@ -10,11 +10,11 @@ function TopButton() {
     },
     {
       id: 3,
-      name: "Banglore",
+      name: "Bengaluru",
     },
     {
       id: 4,
-      name: "Ahemdabad",
+      name: "Ahmedabad",
     },
     {
       id: 5,
@@ -29,6 +29,7 @@ function TopButton() {
         <button
           key={city.id}
           className="text-lg font-medium hover:bg-gray-700/20 px-3 py-3 rounded-md transition ease-out"
+          onClick={()=>setQuery({q:city.name})}
         >
           {city.name}
         </button>

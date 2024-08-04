@@ -5,25 +5,36 @@ import { GiSunrise, GiSunset } from "react-icons/gi";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 
-export default function TempAndDetails() {
+export default function TempAndDetails({weather:{
+  temp,
+  feels_like,
+  humidity,
+  temp_max,
+  temp_min,
+  sunrise,
+  sunset,
+  speed,
+  details,
+  icon
+},units})  {
   const vreticlaDetails = [
     {
       id: 1,
       Icon: FaThermometerEmpty,
       title: "Real Feel",
-      value: "22&deg;"
+      value: `${feels_like.toFixed()}`
     },
     {
       id: 2,
       Icon: BiSolidDropletHalf,
       title: "Humidity",
-      value: "38 &",
+      value: `${humidity.toFixed()}%`
     },
     {
       id: 3,
       Icon: FiWind,
       title: "Wind",
-      value: "11 km/h",
+      value: `${speed.toFixed()} ${units === 'metric' ? 'Km/h' : 'M/s'}`,
     },
   ];
 
@@ -32,42 +43,42 @@ export default function TempAndDetails() {
       id: 1,
       Icon: GiSunrise,
       title: "Sunrise",
-      value: "05:33 AM",
+      value: `${sunrise}`,
       
     },
     {
       id: 2,
       Icon: GiSunset,
       title: "Sunset",
-      value: "07:25 PM",
+      value: `${sunset}`,
     },
     {
       id: 3,
       Icon: MdKeyboardArrowUp,
       title: "High",
-      value: "37",
+      value: `${temp_max.toFixed()}`,
     },
     {
       id: 4,
       Icon: MdKeyboardArrowDown,
       title: "Low",
-      value: "25",
-    },
+      value: `${temp_min.toFixed()}`,
+    }
   ];
 
   return (
     <div>
-      <div className="flex items-center justify-center py-6 text-xl text-cyan-400">
-        <p>Rain</p>
-      </div>
+      <div className="flex items-center justify-center py-6 text-xl text-cyan-500">
+        <p>{details}</p>
+      </div>  
 
       <div className="flex flex-row items-center justify-between py-3">
         <img
-          src="https://openweathermap.org/img/wn/01d@2x.png"
-          alt="Weather Icon"
+          src={icon}
+          alt="Weather Icon"  
           className="w-20"
         />
-        <p className="text-4xl">35&deg;</p>
+        <p className="text-4xl">{`${temp.toFixed()}`}</p>
         <div className="flex flex-col space-y-3 items-start">
           {vreticlaDetails.map(({ id, Icon, title, value }) => (
             <div
