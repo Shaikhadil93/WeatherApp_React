@@ -14,7 +14,7 @@ export default function Forcast({title,data}) {
                 <img src={d.icon}
                 alt="Weather Icon" 
                 className='w-12 my-1'/>
-                <p className='font-medium'>{d.temp}</p>
+                <p className='font-medium'>{d.temp}20°</p>
             </div>
         ))}
       </div>

@@ -22,7 +22,7 @@ export default function TempAndDetails({weather:{
       id: 1,
       Icon: FaThermometerEmpty,
       title: "Real Feel",
-      value: `${feels_like.toFixed()}`
+      value: `${feels_like.toFixed()}°`
     },
     {
       id: 2,
@@ -56,13 +56,13 @@ export default function TempAndDetails({weather:{
       id: 3,
       Icon: MdKeyboardArrowUp,
       title: "High",
-      value: `${temp_max.toFixed()}`,
+      value: `${temp_max.toFixed()}°`,
     },
     {
       id: 4,
       Icon: MdKeyboardArrowDown,
       title: "Low",
-      value: `${temp_min.toFixed()}`,
+      value: `${temp_min.toFixed()}°`,
     }
   ];
 
@@ -78,7 +78,7 @@ export default function TempAndDetails({weather:{
           alt="Weather Icon"  
           className="w-20"
         />
-        <p className="text-4xl">{`${temp.toFixed()}`}</p>
+        <p className="text-4xl">{`${temp.toFixed()}°`}</p>
         <div className="flex flex-col space-y-3 items-start">
           {vreticlaDetails.map(({ id, Icon, title, value }) => (
             <div
